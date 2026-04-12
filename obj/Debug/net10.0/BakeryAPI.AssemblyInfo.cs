@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BakeryAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d3a31f60e3323fb775c0256f921389f9554c6b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("BakeryAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BakeryAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
