@@ -1,0 +1,12 @@
+
+[Bb]in/
+[Ob]j/
+
+
+.vs/
+.vscode/
+*.user
+
+
+*.log
+.DS_Store
