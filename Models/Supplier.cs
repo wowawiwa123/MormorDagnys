@@ -9,6 +9,6 @@ public class Supplier
     public string PhoneNumber { get; set; } 
     public string Email { get; set; }
 
-    // Navigation
+
     public ICollection<SupplierIngredient> SupplierIngredients { get; set; } = new List<SupplierIngredient>();
 }
