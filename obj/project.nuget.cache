@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oczbrP278FE=",
+  "dgSpecHash": "7r7BHVaa6WQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\Desktop\\MormorDagnys-Kevin\\BakeryAPI.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\Documents\\VisualCode\\SKola\\MormorDagnys-Kevin\\BakeryAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\microsoft.build\\17.7.2\\microsoft.build.17.7.2.nupkg.sha512",

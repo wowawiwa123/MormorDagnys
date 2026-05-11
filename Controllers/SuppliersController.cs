@@ -38,7 +38,7 @@ public class SuppliersController(BakeryContext context) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult> FindSupplier(int id)
+    public async Task<ActionResult> FindSupplier(string id)
     {
         try
         {
@@ -77,7 +77,6 @@ public class SuppliersController(BakeryContext context) : ControllerBase
         }
     }
 
-    
     [HttpGet("search")]
     public async Task<ActionResult> SearchSuppliers([FromQuery] string q)
     {
@@ -90,7 +89,7 @@ public class SuppliersController(BakeryContext context) : ControllerBase
                 .Include(s => s.SupplierIngredients)
                     .ThenInclude(si => si.Ingredient)
                 .Where(s => s.Name.ToLower().Contains(q.ToLower())
-                        || s.ContactPerson.ToLower().Contains(q.ToLower()))
+                         || s.ContactPerson.ToLower().Contains(q.ToLower()))
                 .ToListAsync();
 
             if (!suppliers.Any())
@@ -124,9 +123,8 @@ public class SuppliersController(BakeryContext context) : ControllerBase
         }
     }
 
-
     [HttpPost("{supplierId}/ingredients")]
-    public async Task<ActionResult> AddIngredientToSupplier(int supplierId, AddIngredientToSupplierDto model)
+    public async Task<ActionResult> AddIngredientToSupplier(string supplierId, AddIngredientToSupplierDto model)
     {
         try
         {
@@ -135,9 +133,6 @@ public class SuppliersController(BakeryContext context) : ControllerBase
 
             Ingredient ingredient = await context.Ingredients.FindAsync(model.IngredientId);
             if (ingredient is null) return NotFound($"Ingredient with id {model.IngredientId} was not found.");
-
-            if (model.PricePerKg <= 0)
-                return BadRequest("Price must be greater than 0.");
 
             bool alreadyExists = await context.SupplierIngredients
                 .AnyAsync(si => si.SupplierId == supplierId && si.IngredientId == model.IngredientId);
@@ -155,11 +150,7 @@ public class SuppliersController(BakeryContext context) : ControllerBase
             context.SupplierIngredients.Add(link);
             await context.SaveChangesAsync();
 
-            return Ok(new
-            {
-                Success = true,
-                Message = $"'{ingredient.Name}' added to supplier '{supplier.Name}' at {model.PricePerKg} kr/kg."
-            });
+            return Ok(new { Success = true, Message = $"'{ingredient.Name}' added to supplier '{supplier.Name}' at {model.PricePerKg} kr/kg." });
         }
         catch (Exception ex)
         {
@@ -168,15 +159,11 @@ public class SuppliersController(BakeryContext context) : ControllerBase
         }
     }
 
-
     [HttpPatch("{supplierId}/ingredients/{ingredientId}/price")]
-    public async Task<ActionResult> UpdateIngredientPrice(int supplierId, int ingredientId, UpdatePriceDto model)
+    public async Task<ActionResult> UpdateIngredientPrice(string supplierId, string ingredientId, UpdatePriceDto model)
     {
         try
         {
-            if (model.NewPricePerKg <= 0)
-                return BadRequest("Price must be greater than 0.");
-
             SupplierIngredient link = await context.SupplierIngredients
                 .Include(si => si.Supplier)
                 .Include(si => si.Ingredient)
@@ -189,13 +176,7 @@ public class SuppliersController(BakeryContext context) : ControllerBase
             link.PricePerKg = model.NewPricePerKg;
             await context.SaveChangesAsync();
 
-            return Ok(new
-            {
-                Success = true,
-                Message = $"Price for '{link.Ingredient.Name}' at '{link.Supplier.Name}' updated.",
-                OldPrice = oldPrice,
-                NewPrice = model.NewPricePerKg
-            });
+            return Ok(new { Success = true, Message = $"Price for '{link.Ingredient.Name}' at '{link.Supplier.Name}' updated.", OldPrice = oldPrice, NewPrice = model.NewPricePerKg });
         }
         catch (Exception ex)
         {

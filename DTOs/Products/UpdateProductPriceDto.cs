@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BakeryAPI.DTOs.Suppliers;
+namespace BakeryAPI.DTOs.Products;
 
-public class UpdatePriceDto
+public class UpdateProductPriceDto
 {
     [Range(0.01, double.MaxValue, ErrorMessage = "Price must be greater than 0.")]
-    public decimal NewPricePerKg { get; set; }
+    public decimal NewPricePerUnit { get; set; }
 }

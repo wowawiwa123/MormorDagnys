@@ -3218,11 +3218,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\kevin\\Desktop\\MormorDagnys-Kevin\\BakeryAPI.csproj",
+      "projectUniqueName": "C:\\Users\\kevin\\Documents\\VisualCode\\SKola\\MormorDagnys-Kevin\\BakeryAPI.csproj",
       "projectName": "BakeryAPI",
-      "projectPath": "c:\\Users\\kevin\\Desktop\\MormorDagnys-Kevin\\BakeryAPI.csproj",
+      "projectPath": "C:\\Users\\kevin\\Documents\\VisualCode\\SKola\\MormorDagnys-Kevin\\BakeryAPI.csproj",
       "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\kevin\\Desktop\\MormorDagnys-Kevin\\obj\\",
+      "outputPath": "C:\\Users\\kevin\\Documents\\VisualCode\\SKola\\MormorDagnys-Kevin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config"

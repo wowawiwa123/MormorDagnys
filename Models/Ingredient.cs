@@ -1,11 +1,9 @@
 namespace BakeryAPI.Models;
 
-public class Ingredient
+public class Ingredient : BaseEntity
 {
-    public int Id { get; set; }
-    public string ArticleNumber { get; set; }
-    public string Name { get; set; }
-
+    public required string ArticleNumber { get; set; }
+    public required string Name { get; set; }
 
     public ICollection<SupplierIngredient> SupplierIngredients { get; set; } = new List<SupplierIngredient>();
 }

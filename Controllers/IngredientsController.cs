@@ -46,7 +46,7 @@ public class IngredientsController(BakeryContext context) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult> FindIngredient(int id)
+    public async Task<ActionResult> FindIngredient(string id)
     {
         try
         {
